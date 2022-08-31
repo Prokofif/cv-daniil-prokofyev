@@ -68,66 +68,58 @@
       <div class="red-line"></div>
 
       <h2>EDUCATION</h2>
-      <h4 style="font-size: 1.3rem">
-        Saxion University of Applied Science <br />Bachelor degree
+      <h4 class="sub-h4">
+        Saxion University of Applied Science <br />
+        HBO Software Engineering | 2016-2022 <br />
+        Bachelor degree
       </h4>
-      <h4 style="font-size: 1.3rem">HBO Software Engineering | 2016-2022</h4>
-      <p class="main-content-text"></p>
       <div class="red-line"></div>
     </div>
     <div class="experience">
       <h2>EXPERIENCE</h2>
-      <h3 style="font-size: 1.5rem">TS24 B.V. | July 2020 - May 2022</h3>
-      <h4 style="font-size: 1.3rem">PHP web developer</h4>
+      <h4 class="sub-h4">TS24 B.V. | July 2020 - May 2022</h4>
       <p class="main-content-text">
-        Full stack developer responsible for solving issues and implementing
-        features to improve an internet shop.
+        Full stack PHP web developer responsible for solving issues and
+        implementing features to improve an internet shop.
       </p>
       <div class="blue-line"></div>
 
-      <h3 style="font-size: 1.5rem">
-        Saxion Research group| Sep 2021 - April 2022
-      </h3>
-      <h4 style="font-size: 1.3rem">
-        Full stack developer. Graduation project
-      </h4>
+      <h4 class="sub-h4">Saxion Graduation Project | Sep 2021 - April 2022</h4>
       <p class="main-content-text">
-        Created an application for tracking energy with graphs for a residential
-        area in NL. <br />
-        Angular, NodeJS, MongoDB, REST API
+        Created an application for tracking energy in a residential area called
+        Aardehuizen, Netherlands. <br />
+        Angular, NodeJS, MongoDB, REST API, Highcharts
       </p>
       <div class="blue-line"></div>
 
-      <h3 style="font-size: 1.5rem">
-        Signify | September 2019 - February 2020 | 5 months
-      </h3>
-      <h4 style="font-size: 1.3rem">
-        Low code platforms researcher. Internship
+      <h4 class="sub-h4">
+        Signify | September 2019 - February 2020 | 5 months <br />
       </h4>
-      <p class="main-content-text">OutSystems and Mendix web development</p>
+      <p class="main-content-text">
+        Mendix and OutSystems low code platforms research. Internship where two
+        identical web apps were created using these platforms.
+      </p>
       <div class="blue-line"></div>
 
-      <h3 style="font-size: 1.5rem">
-        Saxion | September 2018 - February 2019 | 5 months
-      </h3>
-      <h4 style="font-size: 1.3rem">Angular web development</h4>
-
-      <a
+      <h4 class="sub-h4">
+        Saxion | September 2018 - February 2019 | 5 months </h4>
+      <p class="main-content-text">
+        <a
         href="http://biodiversity-footprint.herokuapp.com/#/calculator"
         target="_blank"
-      >
-        <p class="main-content-text">Biodiversity Footprint calculator</p>
-      </a>
+      >Biodiversity footprint calculator</a> created on Angular for Plansup.
+      </p>
+      
       <div class="red-line"></div>
 
-      <h3 style="font-size: 1.5rem">HOBBIES</h3>
+      <h2>HOBBIES</h2>
 
-      <h3 style="font-size: 1.5rem">
+       <h4 class="sub-h4">
         Current project with friends | Dungeon and Dragons app
-      </h3>
-      <h4 style="font-size: 1.3rem">Vue JS developer</h4>
+      </h4>
 
       <p class="main-content-text">
+        Vue JS developer <br>
         <a href="https://dnd-kz-ua-ru.netlify.app/" target="_blank">
           Dungeon and Dragons
         </a>
@@ -136,9 +128,7 @@
         where a game master and players could keep track of game statistics.
       </p>
       <br />
-      <h4 style="font-size: 1.3rem">
-        Gimbarr, Chess, music, Snowboarding, Yoga
-      </h4>
+      <h4 class="sub-h4">Gimbarr, Chess, music, Snowboarding, Yoga</h4>
     </div>
   </div>
 </template>
@@ -181,9 +171,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#parent{
+/* #parent{
    overflow:hidden;
+} */
+
+.grid-container > div {
+  padding: 0px 40px;
 }
+
 .header {
   grid-area: header;
   background-color: #ff2527;
@@ -223,7 +218,8 @@ export default {
 }
 
 .main-content-text {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  padding-left: 1.3rem;
 }
 
 .red-line {
@@ -250,6 +246,8 @@ export default {
 }
 .experience {
   grid-area: experience;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 .grid-container {
@@ -277,12 +275,11 @@ export default {
   div {
     width: 100%;
   }
-  .header, .skills, .personal-info{
+  .header,
+  .skills,
+  .personal-info {
     text-align: center;
-    
   }
-  
-  
 }
 /* .grid-container {
   display: grid;
@@ -294,8 +291,14 @@ export default {
   padding: 10px;
 } */
 
-.grid-container > div {
-  padding: 30px 40px;
+.sub-h3 {
+  font-size: 1.5rem;
+  padding-left: 1.3rem;
+}
+
+.sub-h4 {
+  font-size: 1.3rem;
+  padding-left: 1.3rem;
 }
 
 img {
