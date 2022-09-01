@@ -7,8 +7,16 @@
   <div class="grid-container">
     <div class="header">
       <div class="header-title">
-        <h1>DANIIL PROKOFYEV</h1>
-        <h4>HBO - Software engineer</h4>
+        <h1 class="animate-charcter">DANIIL PROKOFYEV</h1>
+        <h4>
+          <a
+            class="typewrite"
+            data-period="2000"
+            data-type='[ "Hi, Im Si", "I am Creative.", "I Love Design.", "I Love to Develop." ]'
+          >
+            <span class="wrap"></span>
+          </a>
+        </h4>
       </div>
     </div>
     <div class="portfolio-image">
@@ -19,7 +27,6 @@
           </div>
           <div class="flip-card-back">
             <p>Open for web dev position</p>
-            <p>Vue JS</p>
           </div>
         </div>
       </div>
@@ -67,7 +74,7 @@
       </p>
       <div class="red-line"></div>
 
-      <h2>EDUCATION</h2>
+      <h2 class="education-h">EDUCATION</h2>
       <h4 class="sub-h4">
         Saxion University of Applied Science <br />
         HBO Software Engineering | 2016-2022 <br />
@@ -88,6 +95,8 @@
       <p class="main-content-text">
         Created an application for tracking energy in a residential area called
         Aardehuizen, Netherlands. <br />
+      </p>
+      <p class="main-content-text">
         Angular, NodeJS, MongoDB, REST API, Highcharts
       </p>
       <div class="blue-line"></div>
@@ -101,34 +110,33 @@
       </p>
       <div class="blue-line"></div>
 
-      <h4 class="sub-h4">
-        Saxion | September 2018 - February 2019 | 5 months </h4>
+      <h4 class="sub-h4">Saxion | September 2018 - February 2019 | 5 months</h4>
       <p class="main-content-text">
         <a
-        href="http://biodiversity-footprint.herokuapp.com/#/calculator"
-        target="_blank"
-      >Biodiversity footprint calculator</a> created on Angular for Plansup.
+          href="http://biodiversity-footprint.herokuapp.com/#/calculator"
+          target="_blank"
+          >Biodiversity footprint calculator</a
+        >
+        created on Angular for Plansup.
       </p>
-      
+
       <div class="red-line"></div>
 
-      <h2>HOBBIES</h2>
+      <h2 class="hobbies-h">HOBBIES</h2>
 
-       <h4 class="sub-h4">
-        Current project with friends | Dungeon and Dragons app
-      </h4>
+      <h4 class="sub-h4">Dungeon and Dragons app on Vue JS</h4>
 
       <p class="main-content-text">
-        Vue JS developer <br>
         <a href="https://dnd-kz-ua-ru.netlify.app/" target="_blank">
           Dungeon and Dragons
         </a>
-        is an RPG board game. This is an opensource project created to improve
-        web dev skills. Team of students are going to create a management tool
-        where a game master and players could keep track of game statistics.
+        is an opensource project created with friends to improve our skills.
+        <br />
+        DnD is a role-play board game. We want create a management tool and add
+        our own features to make it even more fun!
       </p>
       <br />
-      <h4 class="sub-h4">Gimbarr, Chess, music, Snowboarding, Yoga</h4>
+      <h4 class="sub-h4">Gimbarr, Chess, Music, Snowboarding, Yoga</h4>
     </div>
   </div>
 </template>
@@ -138,6 +146,90 @@ import { gsap } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
 
 gsap.registerPlugin(CSSPlugin);
+
+
+//todo
+function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+async function init(){
+    console.log("Executed now");
+    await delay(3000);
+    console.log("Executed after 3 seconds wait");
+
+    //todo place typing text function here
+}
+
+init();
+
+// start of header text animation
+var TxtType = function (el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = "";
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function () {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) {
+    delta /= 2;
+  }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+    console.log(this.txt);
+  } else if (this.isDeleting && this.txt === "") {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+    console.log(this.txt);
+  }
+  if (this.txt === "I Love to Develop.") {
+    return 0;
+  }
+
+  setTimeout(function () {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function () {
+  var elements = document.getElementsByClassName("typewrite");
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute("data-type");
+    var period = elements[i].getAttribute("data-period");
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+  document.body.appendChild(css);
+};
+// end of header text animation
 
 export default {
   name: "HelloWorld",
@@ -171,29 +263,67 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* #parent{
-   overflow:hidden;
-} */
+.animate-charcter{
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
 
-.grid-container > div {
-  padding: 0px 40px;
+    #fff 0%,
+    #fff 60%,
+    #231557 69%,
+    #231557 80%,
+    #fff 100%
+    
+    /* #fff 0%,
+    #fff 60%,
+    #dc9fb3 70%,
+    #ff1361 80%,
+    #dc9fb3 90%,
+    #fff 100% */
+  );
+  
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+  animation-iteration-count: 1;
+}
+
+@keyframes textclip {
+  
+  to {
+    background-position: 200% center;
+  }
+  
 }
 
 .header {
   grid-area: header;
   background-color: #ff2527;
   color: #fdfdfd;
-  /* min-height: 270px; */
 }
 
 .header > div > h4 {
   color: #263547;
 }
 
+.header,
+.skills,
+.main-content,
+.personal-info,
+.experience {
+  padding: 0 40px;
+}
+
 .skills > h2,
 .main-content > h2,
 .personal-info > h2,
 .experience > h2 {
+  text-transform: uppercase;
   font-size: 1.5rem;
 }
 
@@ -208,6 +338,13 @@ export default {
   font-size: 1.2rem;
   color: #fdfdfd;
   padding-bottom: 20px;
+}
+
+.education-h {
+  padding-top: 10px;
+}
+.hobbies-h {
+  padding-top: 40px;
 }
 
 .main-content,
@@ -229,14 +366,14 @@ export default {
 .blue-line {
   border-bottom: 5px solid #4375fd;
   width: 75%;
+  margin-bottom: 50px;
 }
 
 .portfolio-image {
-  padding-right: 0;
   display: flex;
   justify-content: center;
   background-color: #ff2527;
-  grid-area: profile-image;
+  grid-area: portfolio-image;
   grid-column: 3;
   grid-row: 1;
 }
@@ -252,6 +389,7 @@ export default {
 
 .grid-container {
   display: grid;
+  grid-template-columns: auto auto 200px;
   grid-template-areas:
     "header header portfolio-image"
     "skills main main"
@@ -263,39 +401,6 @@ export default {
   font-size: 22px;
 }
 
-@media only screen and (max-width: 900px) {
-  .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-
-    padding: 10px;
-    font-family: "Poppins";
-    font-size: 22px;
-  }
-  div {
-    width: 100%;
-  }
-  .header,
-  .skills,
-  .personal-info {
-    text-align: center;
-  }
-}
-/* .grid-container {
-  display: grid;
-  grid-template-areas:
-    "header header header header header portfolio-image"
-    "skills skills main main main main"
-    "personal-info personal-info experience experience experience experience";
-
-  padding: 10px;
-} */
-
-.sub-h3 {
-  font-size: 1.5rem;
-  padding-left: 1.3rem;
-}
-
 .sub-h4 {
   font-size: 1.3rem;
   padding-left: 1.3rem;
@@ -303,25 +408,25 @@ export default {
 
 img {
   border-radius: 50%;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 }
 
 /* flip image css START*/
 .flip-card {
   background-color: transparent;
-  width: 250px;
-  height: 250px;
+  width: 170px;
+  height: 170px;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
-  /* position: relative; */
   width: 100%;
   height: 100%;
   text-align: center;
+  padding: 10px 0;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -330,16 +435,16 @@ img {
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
-
 /* Position the front and back side */
 .flip-card-front,
 .flip-card-back {
   border-radius: 50%;
+
   border: 5px solid #fdfdfd;
   padding: 5px;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 150px;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
@@ -348,13 +453,44 @@ img {
 .flip-card-back {
   background-color: #263547;
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   transform: rotateY(180deg);
 }
 
 /* text inside fliped card */
 .flip-card-back > p:first-child {
-  padding-top: 60px;
+  padding-top: 31px;
+}
+
+/* SMALLER SCREEN */
+@media only screen and (max-width: 900px) {
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    font-family: "Poppins";
+    font-size: 22px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+
+  div {
+    width: 100%;
+  }
+  .portfolio-image {
+    padding: 0 0 20px ;
+  }
+  .header,
+  .skills,
+  .personal-info {
+    text-align: center;
+  }
+  .education-h,
+  .hobbies-h {
+    padding-top: 0px;
+  }
+
 }
 </style>
 
