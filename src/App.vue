@@ -1,17 +1,16 @@
 <template>
-  
-  <HelloWorld/>
+  <HelloWorld />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+};
 </script>
 
 <style>
@@ -19,15 +18,13 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  /* color: #2c3e50; */
   max-width: 1000px;
-  margin-top: 60px;
-  background-color: #EBECF0;
+  background-color: #ebecf0;
 }
 
-body{
-   display: flex;
+body {
+  margin-top: 60px;
+  display: flex;
   justify-content: center;
 }
 </style>

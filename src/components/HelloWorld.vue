@@ -7,12 +7,12 @@
   <div class="grid-container">
     <div class="header">
       <div class="header-title">
-        <h1 class="animate-charcter">DANIIL PROKOFYEV</h1>
+        <h1>DANIIL PROKOFYEV</h1>
         <h4>
           <a
             class="typewrite"
             data-period="2000"
-            data-type='[ "Hi, Im Si", "I am Creative.", "I Love Design.", "I Love to Develop." ]'
+            data-type='[ "Hi, Im ", "I am Creative.", "I Love Design.", "I Love to Develop." ]'
           >
             <span class="wrap"></span>
           </a>
@@ -26,7 +26,7 @@
             <img src="./../assets/profile.png" alt="profile image" />
           </div>
           <div class="flip-card-back">
-            <p>Open for web dev position</p>
+            <p>Open for a web dev position</p>
           </div>
         </div>
       </div>
@@ -93,11 +93,11 @@
 
       <h4 class="sub-h4">Saxion Graduation Project | Sep 2021 - April 2022</h4>
       <p class="main-content-text">
-        Created an application for tracking energy in a residential area called
+        Information gathering, Structure, Design, Build, Testing and Launch an application from scratch for tracking energy in a residential area called
         Aardehuizen, Netherlands. <br />
       </p>
       <p class="main-content-text">
-        Angular, NodeJS, MongoDB, REST API, Highcharts
+        Angular - frontend <br> NodeJS - backend <br> MongoDB - online database <br> Highcharts - charts library <br>  REST API - charts data
       </p>
       <div class="blue-line"></div>
 
@@ -106,19 +106,41 @@
       </h4>
       <p class="main-content-text">
         Mendix and OutSystems low code platforms research. Internship where two
-        identical web apps were created using these platforms.
+        identical web apps were created using these platforms.  Each app is made
+        of: <br>
       </p>
+        <p class="main-content-text span-gap" style="margin:0;">
+        <b>Log in/Sign up</b> page with session-based authentication and authorization proccess (Logic building). <br>
+        </p>
+        
+        <p class="main-content-text span-gap" style="margin:0;">
+        <b>Modal</b> with dropdowns to select specific data (Logic building). <br>
+        </p>
+
+        <p class="main-content-text span-gap" style="margin:0;">
+        <b>Main</b> page with a multiple line graph, bar charts (REST API data processing) and a comment component (Database, SQL). <br>
+        </p>
+        <p class="main-content-text span-gap" style="margin-top:0;">
+        <b>About</b> page where user details can be edited (Data binding).<br>
+        </p>
       <div class="blue-line"></div>
 
-      <h4 class="sub-h4">Saxion | September 2018 - February 2019 | 5 months</h4>
+      <h4 class="sub-h4">Saxion web dev project | September 2018 - February 2019 | 5 months</h4>
       <p class="main-content-text">
         <a
           href="http://biodiversity-footprint.herokuapp.com/#/calculator"
           target="_blank"
           >Biodiversity footprint calculator</a
-        >
-        created on Angular for Plansup.
+        > - web application created in a team of 4 students on Angular for Plansup. 
       </p>
+      <div class="blue-line"></div>
+
+      <h4 class="sub-h4">Saxion Android Studio project | September 2017 - February 2018 | 5 months</h4>
+      <p class="main-content-text">
+        Team of 5 students created a Fishing game from scratch written on Java in Android Studio.  
+      </p>
+
+      
 
       <div class="red-line"></div>
 
@@ -130,7 +152,7 @@
         <a href="https://dnd-kz-ua-ru.netlify.app/" target="_blank">
           Dungeon and Dragons
         </a>
-        is an opensource project created with friends to improve our skills.
+        is an open source project created with friends to improve our skills.
         <br />
         DnD is a role-play board game. We want create a management tool and add
         our own features to make it even more fun!
@@ -161,22 +183,18 @@ async function init(){
     console.log("Executed after 3 seconds wait");
 
     //todo place typing text function here
-}
 
-init();
+    var TxtType = function (el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = "";
+    this.tick();
+    this.isDeleting = false;
+  };
 
-// start of header text animation
-var TxtType = function (el, toRotate, period) {
-  this.toRotate = toRotate;
-  this.el = el;
-  this.loopNum = 0;
-  this.period = parseInt(period, 10) || 2000;
-  this.txt = "";
-  this.tick();
-  this.isDeleting = false;
-};
-
-TxtType.prototype.tick = function () {
+  TxtType.prototype.tick = function () {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
 
@@ -214,7 +232,6 @@ TxtType.prototype.tick = function () {
   }, delta);
 };
 
-window.onload = function () {
   var elements = document.getElementsByClassName("typewrite");
   for (var i = 0; i < elements.length; i++) {
     var toRotate = elements[i].getAttribute("data-type");
@@ -227,8 +244,17 @@ window.onload = function () {
   var css = document.createElement("style");
   css.type = "text/css";
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-  document.body.appendChild(css);
-};
+  document.body.appendChild(css); 
+}
+
+init();
+
+// start of header text animation
+
+
+
+
+
 // end of header text animation
 
 export default {
@@ -263,48 +289,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.animate-charcter{
-  text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
 
-    #fff 0%,
-    #fff 60%,
-    #231557 69%,
-    #231557 80%,
-    #fff 100%
-    
-    /* #fff 0%,
-    #fff 60%,
-    #dc9fb3 70%,
-    #ff1361 80%,
-    #dc9fb3 90%,
-    #fff 100% */
-  );
-  
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 3s linear infinite;
-  animation-iteration-count: 1;
-}
-
-@keyframes textclip {
-  
-  to {
-    background-position: 200% center;
-  }
-  
-}
 
 .header {
   grid-area: header;
   background-color: #ff2527;
   color: #fdfdfd;
+  min-height: 187px;
 }
 
 .header > div > h4 {
@@ -340,6 +331,8 @@ export default {
   padding-bottom: 20px;
 }
 
+
+
 .education-h {
   padding-top: 10px;
 }
@@ -364,9 +357,12 @@ export default {
 }
 
 .blue-line {
-  border-bottom: 5px solid #4375fd;
+  border-bottom: 5px solid #0044ff;
   width: 75%;
   margin-bottom: 50px;
+}
+a:visited{
+  color:#1856ff;
 }
 
 .portfolio-image {
@@ -492,5 +488,12 @@ img {
   }
 
 }
+.span-gap {
+  text-indent: 2rem;
+  /* margin: 0; */
+}
+
+
+
 </style>
 
