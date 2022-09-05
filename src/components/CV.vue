@@ -35,7 +35,7 @@
       <h2>SKILLS</h2>
       <p class="skills-list">
         Angular <br />
-        Vue JS <br />
+        Vue JS, Vuex <br />
         PHP<br />
         Python (Machine learning)<br />
         OutSystems & Mendix<br />
@@ -93,8 +93,8 @@
 
       <h4 class="sub-h4">Saxion Graduation Project | Sep 2021 - April 2022</h4>
       <p class="main-content-text">
-        Information gathering, Structure, Design, Build, Testing and Launch an application from scratch for tracking energy in a residential area called
-        Aardehuizen, Netherlands. <br />
+        Information gathering, Interview final users, Design, Build, Test and Launch an application from scratch for tracking energy in a residential area called
+       Aardehuizen, Netherlands. <br />
       </p>
       <p class="main-content-text">
         Angular - frontend <br> NodeJS - backend <br> MongoDB - online database <br> Highcharts - charts library <br>  REST API - charts data
@@ -224,6 +224,10 @@ async function init(){
     console.log(this.txt);
   }
   if (this.txt === "I Love to Develop.") {
+      var css = document.createElement("style");
+      css.type = "text/css";
+      css.innerHTML = ".typewrite > .wrap { border-right: 0em}";
+      document.body.appendChild(css); 
     return 0;
   }
 
