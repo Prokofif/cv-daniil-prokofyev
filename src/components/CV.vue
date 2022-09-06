@@ -48,7 +48,9 @@
         Git, SCRUM<br />
         Professional communication<br />
         Presentation<br />
+        
       </p>
+      <p style="color:#333;">HTML and CSS</p>
     </div>
 
     <div class="personal-info">
@@ -137,7 +139,7 @@
 
       <h4 class="sub-h4">Saxion Android Studio project | September 2017 - February 2018 | 5 months</h4>
       <p class="main-content-text">
-        Team of 5 students created a Fishing game from scratch written on Java in Android Studio.  
+        Team of 5 students created a mobile Fishing game application from scratch written on Java in Android Studio.  
       </p>
 
       
