@@ -108,7 +108,7 @@
       </h4>
       <p class="main-content-text">
         Mendix and OutSystems low code platforms research. Internship where two
-        identical web apps were created using these platforms.  Each app is made
+        identical web apps were created using these platforms. Each app is made
         of: <br>
       </p>
         <p class="main-content-text span-gap" style="margin:0;">
@@ -116,14 +116,10 @@
         </p>
         
         <p class="main-content-text span-gap" style="margin:0;">
-        <b>Modal</b> with dropdowns to select specific data (Logic building). <br>
-        </p>
-
-        <p class="main-content-text span-gap" style="margin:0;">
         <b>Main</b> page with a multiple line graph, bar charts (REST API data processing) and a comment component (Database, SQL). <br>
         </p>
         <p class="main-content-text span-gap" style="margin-top:0;">
-        <b>About</b> page where user details can be edited (Data binding).<br>
+        <b>About</b> page where user details can be edited.<br>
         </p>
       <div class="blue-line"></div>
 
