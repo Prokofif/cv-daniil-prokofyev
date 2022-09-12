@@ -48,9 +48,9 @@
         Git, SCRUM<br />
         Professional communication<br />
         Presentation<br />
+        <span style="color:#333;">HTML and CSS</span>
         
       </p>
-      <p style="color:#333;">HTML and CSS</p>
     </div>
 
     <div class="personal-info">
@@ -330,14 +330,11 @@ export default {
 .personal-info-content {
   font-size: 1.2rem;
   color: #fdfdfd;
-  padding-bottom: 20px;
 }
 
 
 
-.education-h {
-  padding-top: 10px;
-}
+
 .hobbies-h {
   padding-top: 40px;
 }
@@ -472,6 +469,10 @@ img {
   h1 {
     font-size: 2rem;
   }
+  h2 {
+    padding: 40px 0;
+    text-align: center;
+  }
 
   div {
     width: 100%;
@@ -486,7 +487,7 @@ img {
   }
   .education-h,
   .hobbies-h {
-    padding-top: 0px;
+    /* padding-top: 0px; */
   }
 
 }
